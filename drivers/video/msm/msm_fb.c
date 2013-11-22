@@ -3850,6 +3850,15 @@ static int msm_lcd_read_proc(
 			strcpy(module_name,"100");
 			//len = sprintf(page, "%s\n","40");
 			break;	
+               case LCD_PANEL_4P3_NT35510_2:
+                        strcpy(module_name,"zteBOE4.3WVGA480*800"); //arthur
+                        break;
+               case LCD_PANEL_4P3_RM68120_LEAD:
+                        strcpy(module_name,"zteLEAD(RM68120)_WVGA_4.3Inch"); //arthur
+                        break;
+               case LCD_PANEL_4P3_HX8369A_TM:
+                        strcpy(module_name,"zteTM4.3WVGA480*800"); //arthur
+                        break;  
 		case LCD_PANEL_3P5_R61529:
 			strcpy(module_name,"zteLEAD(R61529+LG)_320*480_3.5Inch");
 			break;	
