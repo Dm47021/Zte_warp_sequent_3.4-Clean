@@ -177,7 +177,10 @@ static struct platform_device ion_dev;
 #define PMIC_GPIO_HDMI_5V_EN_V3 32  /* PMIC GPIO for V3 H/W */
 #define PMIC_GPIO_HDMI_5V_EN_V2 39 /* PMIC GPIO for V2 H/W */
 
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 static int g_zte_secboot_mode;
+#else
+#endif
 
 #define ADV7520_I2C_ADDR	0x39
 
@@ -833,6 +836,9 @@ static struct pm8xxx_keypad_platform_data surf_keypad_data = {
 #elif defined(CONFIG_MACH_SEAN)
 	.input_name		= "sean_keypad",
 	.input_phys_device	= "sean_keypad/input0",
+#elif defined(CONFIG_MACH_ARTHUR)
+	.input_name		= "arthur_keypad",
+	.input_phys_device	= "arthur_keypad/input0",
 #elif defined(CONFIG_MACH_RADIANT)
 	.input_name		= "radiant_keypad",
 	.input_phys_device	= "radiant_keypad/input0",
@@ -1557,7 +1563,7 @@ static struct i2c_board_info msm_camera_boardinfo[] __initdata = {
 	},
 #endif
 #endif
-#if defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
+#if defined(CONFIG_MACH_ARTHUR)||defined(CONFIG_MACH_SEAN)||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 #ifdef CONFIG_OV5640
     /*
      * Commented by zhang.shengjie
@@ -1726,7 +1732,7 @@ static void config_camera_off_gpios(void)
 	}
 }
 
-#if defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
+#if defined(CONFIG_MACH_ARTHUR)||defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 
 #define MSM_CAMERA_POWER_BACKEND_DVDD_VAL       (1800)
 #define MSM_CAMERA_POWER_BACKEND_IOVDD_VAL      (1800)
@@ -2365,7 +2371,7 @@ static struct platform_device msm_camera_sensor_mt9m114 = {
 #endif
 #endif
 
-#if defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
+#if defined(CONFIG_MACH_ARTHUR)||defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 #ifdef CONFIG_OV5640
 /*
  * Commented by zhang.shengjie
@@ -4503,6 +4509,8 @@ static struct msm_gpio lcdc_gpio_config_data[] = {
 	{ GPIO_CFG(120, 0, GPIO_CFG_INPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_ic_id" },
 #elif defined(CONFIG_MACH_SEAN)
 	{ GPIO_CFG(120, 0, GPIO_CFG_OUTPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_ic_id" },
+#elif defined(CONFIG_MACH_ARTHUR)
+	{ GPIO_CFG(120, 0, GPIO_CFG_OUTPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_ic_id" },
 #elif defined(CONFIG_MACH_RADIANT)
 	{ GPIO_CFG(120, 0, GPIO_CFG_OUTPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_ic_id" },
 #else
@@ -4514,6 +4522,8 @@ static struct msm_gpio lcdc_gpio_config_data[] = {
 #if defined(CONFIG_MACH_WARP2)
 	{ GPIO_CFG(121, 0, GPIO_CFG_INPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_spi_sdi" },
 #elif defined(CONFIG_MACH_SEAN)
+	{ GPIO_CFG(121, 0, GPIO_CFG_OUTPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_spi_sdi" },
+#elif defined(CONFIG_MACH_ARTHUR)
 	{ GPIO_CFG(121, 0, GPIO_CFG_OUTPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_spi_sdi" },
 #elif defined(CONFIG_MACH_RADIANT)
 	{ GPIO_CFG(121, 0, GPIO_CFG_OUTPUT, GPIO_CFG_NO_PULL, GPIO_CFG_4MA), "lcd_spi_sdi" },
@@ -4562,6 +4572,8 @@ static struct platform_device lcdc_panel_device = {
 #if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 	.name   = "lcdc_panel_qhd",
 #elif defined(CONFIG_MACH_SEAN)
+	.name   = "lcdc_panel_wvga",
+#elif defined(CONFIG_MACH_ARTHUR)
 	.name   = "lcdc_panel_wvga",
 #endif
 	.id     = 0,
@@ -5561,7 +5573,7 @@ static struct msm_gpio lcd_panel_gpios[] = {
 	{ GPIO_CFG(23, 1, GPIO_CFG_OUTPUT,  GPIO_CFG_NO_PULL, GPIO_CFG_2MA), "lcdc_red0" },
 	{ GPIO_CFG(24, 1, GPIO_CFG_OUTPUT,  GPIO_CFG_NO_PULL, GPIO_CFG_2MA), "lcdc_red1" },
 	{ GPIO_CFG(25, 1, GPIO_CFG_OUTPUT,  GPIO_CFG_NO_PULL, GPIO_CFG_2MA), "lcdc_red2" },
-#if defined(CONFIG_MACH_SEAN)
+#if defined(CONFIG_MACH_SEAN)||defined(CONFIG_MACH_ARTHUR)
 #ifndef CONFIG_SPI_QSD
 	{ GPIO_CFG(45, 0, GPIO_CFG_OUTPUT,  GPIO_CFG_NO_PULL, GPIO_CFG_2MA), "spi_clk" },
 	{ GPIO_CFG(46, 0, GPIO_CFG_OUTPUT,  GPIO_CFG_NO_PULL, GPIO_CFG_2MA), "spi_cs0" },
@@ -5592,7 +5604,7 @@ static struct msm_gpio lcd_panel_gpios[] = {
 	{ GPIO_CFG(109, 1, GPIO_CFG_OUTPUT,  GPIO_CFG_NO_PULL, GPIO_CFG_2MA), "lcdc_red7" },
 };
 
-#if defined(CONFIG_MACH_SEAN)
+#if defined(CONFIG_MACH_SEAN)||defined(CONFIG_MACH_ARTHUR)
 #ifdef CONFIG_ZTE_PLATFORM
 // not used it
 #else
@@ -6702,7 +6714,7 @@ static struct platform_device *devices[] __initdata = {
 	&msm_camera_sensor_mt9m114,	
 #endif
 #endif
-#if defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
+#if defined(CONFIG_MACH_ARTHUR)||defined(CONFIG_MACH_SEAN) ||defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 #ifdef CONFIG_OV5640
     /*
      * Commented by zh.shj
@@ -8338,12 +8350,13 @@ static struct file_operations debug_global_file_ops = {
 	.read = debug_global_read,
 };
 
+#if defined(CONFIG_MACH_ARTHUR)||(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT)
 extern void __init msm_init_pmic_vibrator(void); 
-
+#endif
 
 #ifdef CONFIG_ZTE_PLATFORM
 
-
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 static void zte_get_secboot_value(void)
 {
   smem_global *pglobal= ioremap(SMEM_LOG_GLOBAL_BASE, sizeof(smem_global));
@@ -8358,6 +8371,8 @@ int zte_is_secboot_mode(void)
 }
 
 EXPORT_SYMBOL(zte_is_secboot_mode);
+#else
+#endif
 
 static void set_zte_board_id_type(void)
 {
@@ -8387,7 +8402,7 @@ static void __init msm7x30_init(void)
 	unsigned smem_size;
 	uint32_t cam2_reset_gpio_cfg_value=0;
 	
-#if 1
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
     const char *hw_ver = NULL;
 #endif
 		
@@ -8418,8 +8433,10 @@ static void __init msm7x30_init(void)
 #ifdef CONFIG_ZTE_PLATFORM
 	zte_ftm_set_value(g_zte_ftm_flag_fixup);
        set_zte_board_id_type();
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
       zte_get_secboot_value();
-
+#else
+#endif
 #endif
 
 #ifdef CONFIG_BCM_BT
@@ -8603,7 +8620,7 @@ static void __init msm7x30_init(void)
 		(smem_get_entry(SMEM_POWER_ON_STATUS_INFO, &smem_size));
 	printk(KERN_NOTICE "Boot Reason = 0x%02x\n", boot_reason);
 	
-#if 1
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
     hw_ver = read_zte_hw_ver();
     socinfo_sync_sysfs_zte_hw_ver(hw_ver);
 #endif	
@@ -9042,6 +9059,19 @@ MACHINE_START(MSM8X55_SVLTE_FFA, "QCT MSM8X55 SVLTE FFA")
 	.init_early = msm7x30_init_early,
 	.handle_irq = vic_handle_irq,
 	.fixup = msm7x30_fixup,
+MACHINE_END
+MACHINE_START(ARTHUR, "ARTHUR")
+	.atag_offset = 0x100,
+	.map_io = msm7x30_map_io,
+	.reserve = msm7x30_reserve,
+	.init_irq = msm7x30_init_irq,
+	.init_machine = msm7x30_init,
+	.timer = &msm_timer,
+	.init_early = msm7x30_init_early,
+	.handle_irq = vic_handle_irq,
+#ifdef CONFIG_ZTE_PLATFORM
+	.fixup = zte_fixup,
+#endif
 MACHINE_END
 MACHINE_START(WARP2, "ZTE WARP2")
 	.atag_offset = 0x100,

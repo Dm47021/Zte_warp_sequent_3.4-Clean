@@ -668,6 +668,7 @@ static struct sys_device soc_sys_device = {
 };
 
 #ifdef CONFIG_ZTE_PLATFORM
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 
 extern int zte_is_secboot_mode(void);
 
@@ -683,9 +684,10 @@ static struct sysdev_attribute socinfo_zte_secboot_files[] = {
 	_SYSDEV_ATTR(zte_efuse_status, 0444, socinfo_show_zte_secboot_mode, NULL),
 };
 #endif
+#endif
 
 
-#if 1
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 static const char *socinfo_zte_hw_ver = NULL;
 
 static ssize_t socinfo_show_zte_hw_ver(struct sys_device *dev,
@@ -759,12 +761,13 @@ static int __init socinfo_init_sysdev(void)
 				ARRAY_SIZE(socinfo_zte_board_id_files));
 #endif
 #ifdef CONFIG_ZTE_PLATFORM
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
 	socinfo_create_files(&soc_sys_device, socinfo_zte_secboot_files,
 				ARRAY_SIZE(socinfo_zte_secboot_files));
 #endif
+#endif
 
-
-#if 1
+#if defined(CONFIG_MACH_WARP2)||defined(CONFIG_MACH_RADIANT) 
     err = socinfo_create_files(&soc_sys_device, socinfo_zte_hw_ver_files,
                                ARRAY_SIZE(socinfo_zte_hw_ver_files));
     if (err) {

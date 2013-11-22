@@ -13,7 +13,7 @@
 obj-$(CONFIG_SENSORS_TSL2550)		+= tsl2550.o
 obj-$(CONFIG_SENSORS_BH1721)		+= bh1721.o
 obj-$(CONFIG_SENSORS_TSL2771)	+= taos.o
-obj-$(CONFIG_SENSORS_AKM8962)   	+= akm8962.o
+#obj-$(CONFIG_SENSORS_AKM8962)   	+= akm8962.o
 obj-$(CONFIG_SENSOR_ADXL34X) 		+= adxl34x.o
 obj-$(CONFIG_SENSOR_ACCELERATOR) 	+= accelerator.o
 obj-$(CONFIG_SENSOR_LIS302DL) 		+= lis302dl.o

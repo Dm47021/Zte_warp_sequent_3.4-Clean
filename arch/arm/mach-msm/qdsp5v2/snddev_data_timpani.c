@@ -57,7 +57,7 @@ static struct adie_codec_dev_profile iearpiece_ffa_profile = {
 	.setting_sz = ARRAY_SIZE(iearpiece_ffa_settings),
 };
 
- #if (defined(CONFIG_MACH_SEAN)) || (defined(CONFIG_MACH_WARP2)) ||defined(CONFIG_MACH_RADIANT) 
+ #if (defined(CONFIG_MACH_ARTHUR)) || (defined(CONFIG_MACH_SEAN)) || (defined(CONFIG_MACH_WARP2)) ||defined(CONFIG_MACH_RADIANT) 
 static struct snddev_icodec_data snddev_iearpiece_ffa_data = {
 	.capability = (SNDDEV_CAP_RX | SNDDEV_CAP_VOICE),
 	.name = "handset_rx",
@@ -612,7 +612,7 @@ static const struct file_operations snddev_hsed_config_debug_fops = {
 };
 #endif
 
-#if (defined(ZTE_FEATURE_SPEAKERPHONE_MIC))|| (defined(CONFIG_MACH_SEAN)) 
+#if (defined(ZTE_FEATURE_SPEAKERPHONE_MIC))|| (defined(CONFIG_MACH_SEAN)) || (defined(CONFIG_MACH_ARTHUR)) 
 static struct adie_codec_action_unit imic_spkr_48KHz_osr256_actions[] =
 	AMIC_line_in_L_MONO_8000_OSR_256; /* 8000 profile also works for 48k */
 

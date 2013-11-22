@@ -103,6 +103,19 @@ static ssize_t cap_ts_vkeys_show(struct device *dev,	struct device_attribute *at
 		":" __stringify(EV_KEY) ":" __stringify(KEY_SEARCH) ":280:510:100:60"
 		"\n");	
 }
+// board arthur
+#elif defined (CONFIG_MACH_ARTHUR)
+#define SYNAPTICS_MAX_Y_POSITION	1450
+static ssize_t cap_ts_vkeys_show(struct device *dev,	struct device_attribute *attr, char *buf)
+{
+	//printk("%s, %s\n",__func__,attr->attr.name);
+	return sprintf(
+		buf,__stringify(EV_KEY) ":" __stringify(KEY_HOME) ":40:510:100:60"
+		":" __stringify(EV_KEY) ":" __stringify(KEY_MENU) ":120:510:100:60"
+		":" __stringify(EV_KEY) ":" __stringify(KEY_BACK) ":200:510:100:60"
+		":" __stringify(EV_KEY) ":" __stringify(KEY_SEARCH) ":280:510:100:60"
+		"\n");	
+}
 #elif defined (CONFIG_MACH_RADIANT)
 #define SYNAPTICS_MAX_Y_POSITION	1885
 static ssize_t cap_ts_vkeys_show(struct device *dev,	struct device_attribute *attr, char *buf)

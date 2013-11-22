@@ -299,6 +299,7 @@ obj-$(CONFIG_ARCH_MSM8974) += clock-local2.o clock-pll.o clock-8974.o clock-rpm.
 obj-$(CONFIG_ARCH_MSM8974) += gdsc.o
 obj-$(CONFIG_ARCH_MSM9625) += board-9625.o board-9625-gpiomux.o
 obj-$(CONFIG_ARCH_MSM8930) += acpuclock-8930.o acpuclock-8627.o acpuclock-8930aa.o
+obj-$(CONFIG_MACH_ARTHUR) += board-msm7x30.o board-zte-wifi.o board-zte-ts.o
 obj-$(CONFIG_MACH_SEAN) += board-msm7x30.o board-zte-wifi.o board-zte-ts.o
 obj-$(CONFIG_MACH_WARP2) += board-msm7x30.o board-zte-wifi.o board-zte-ts.o
 obj-$(CONFIG_MACH_RADIANT) += board-msm7x30.o board-zte-wifi.o board-zte-ts.o
@@ -392,6 +393,7 @@ obj-$(CONFIG_MSM_VP_REGULATOR) += msm_vp.o
 ifdef CONFIG_MSM_CPR
 obj-$(CONFIG_DEBUG_FS) += msm_cpr-debug.o
 endif
+obj-$(CONFIG_MACH_ARTHUR) += msm_vibrator.o
 obj-$(CONFIG_MACH_SEAN) += msm_vibrator.o
 obj-$(CONFIG_MACH_WARP2) += msm_vibrator.o
 obj-$(CONFIG_MACH_RADIANT) += msm_vibrator.o
