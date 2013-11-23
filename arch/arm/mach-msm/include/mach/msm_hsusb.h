@@ -1,7 +1,7 @@
 /* linux/include/mach/hsusb.h
  *
  * Copyright (C) 2008 Google, Inc.
- * Copyright (c) 2009-2012, Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2009-2012, The Linux Foundation. All rights reserved.
  * Author: Brian Swetland <swetland@google.com>
  *
  * This software is licensed under the terms of the GNU General Public
@@ -138,7 +138,6 @@ struct msm_hsusb_gadget_platform_data {
 
 	int self_powered;
 	int is_phy_status_timer_on;
-	bool prop_chg;
 };
 
 struct msm_otg_platform_data {
@@ -202,9 +201,5 @@ struct msm_usb_host_platform_data {
 	int  (*vbus_init)(int init);
 	struct clk *ebi1_clk;
 };
-
-int msm_ep_config(struct usb_ep *ep);
-int msm_ep_unconfig(struct usb_ep *ep);
-int msm_data_fifo_config(struct usb_ep *ep, u32 addr, u32 size);
 
 #endif

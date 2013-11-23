@@ -4495,9 +4495,9 @@ static struct platform_device android_pmem_device = {
 static int lcdc_gpio_array_num[] = {
 				2, /* lcd_bkl_drv */				
 				120, /* lcd_id */
-				123,/* lcd_sdo */
+				121,/* lcd_sdo */
 				122,/* lcd_cs */
-				121,/* lcd_sdi */
+				123,/* lcd_sdi */
 				124,/* lcd_clk */
 				180,/* lcd_rst */
 				};
@@ -9060,7 +9060,7 @@ MACHINE_START(MSM8X55_SVLTE_FFA, "QCT MSM8X55 SVLTE FFA")
 	.handle_irq = vic_handle_irq,
 	.fixup = msm7x30_fixup,
 MACHINE_END
-MACHINE_START(ARTHUR, "ARTHUR")
+MACHINE_START(ARTHUR, "ZTE ARTHUR")
 	.atag_offset = 0x100,
 	.map_io = msm7x30_map_io,
 	.reserve = msm7x30_reserve,
