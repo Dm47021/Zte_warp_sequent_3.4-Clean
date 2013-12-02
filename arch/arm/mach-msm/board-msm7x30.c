@@ -157,10 +157,10 @@ void msm7x30_ts_init(void); //xiayc
 
 #define MSM_FB_SIZE roundup(MSM_FB_PRIM_BUF_SIZE + MSM_FB_EXT_BUF_SIZE, 4096)
 
-#define MSM_PMEM_ADSP_SIZE		0x3284000//0x2184000
-#define MSM_FLUID_PMEM_ADSP_SIZE	0x2800000
+#define MSM_PMEM_ADSP_SIZE		0x0//0x3284000
+#define MSM_FLUID_PMEM_ADSP_SIZE	0x0//0x2800000
 #define PMEM_KERNEL_EBI0_SIZE   0x600000
-#define MSM_PMEM_AUDIO_SIZE     0x200000
+#define MSM_PMEM_AUDIO_SIZE     0x0//0x200000
 
 #ifdef CONFIG_ION_MSM
 static struct platform_device ion_dev;
